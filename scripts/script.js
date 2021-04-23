@@ -1,4 +1,8 @@
+window.search='';
+
 $(function(){
+    //Set focus on search bar
+    $("#search_input").focus();
 
     //Catch enter and delete keys
     $("#search_input").on({
@@ -16,22 +20,27 @@ $(function(){
             }
         },
         'keyup':function(e){
-            $("#results_box").empty();
+            let clear=setTimeout(() => {
+                $("#results_box").empty();
+            }, 40);
             search = $('#search_input').val();
-            if(search.length>2){
+            if(search.length>0){
                 var post=$.post('php/search.php',
                 {
                     search:search
-                },function(data,status){
-                    let results=JSON.parse(data);
-                    $("#results_box").empty();
-                    $(results).each(function(arrkey, object){
-                        $("#results_box").prepend('<p>' + object['nom'] + '</p>')
-                    })
                 })
-                // .done(function(){
-                //     clog('sent')
-                // })
+                .done(function(data,status){
+                    let results=JSON.parse(data);
+                    $("#results_box p").remove();
+                    $(results).each(function(arrkey, object){
+                        $("#results_box").prepend('<p>' + search + '<span class="chars_left">' + object['nom'].substr(search.length) + '</span></p>');
+                        clearTimeout(clear);
+                    });
+                    $("#search_input").css({
+                        "border-bottom-right-radius":"0",
+                        "border-bottom-left-radius":"0"
+                    });
+                });
                 // .fail(function(){
                 //     clog('not sent')
                 // })
@@ -42,6 +51,10 @@ $(function(){
         },
         'blur':function(e){
             $("#results_box").empty();
+            $("#search_input").css({
+                "border-bottom-right-radius":"8px",
+                "border-bottom-left-radius":"8px"
+            });
         },
         'focus':function(e){
             if(search!==undefined) $("#search_input").trigger('keyup');

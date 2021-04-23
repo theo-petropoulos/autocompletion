@@ -3,25 +3,21 @@
     require 'sql.php';
     if(isset($_POST['search']) && $_POST['search']){
         $array=preg_split("/[\s,]*\\\"([^\\\"]+)\\\"[\s,]*|" . "[\s,]*'([^']+)'[\s,]*|" . "[\s,]+/", $_POST['search'], 0, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
-        $searchp=$searchm='';
+        $searchn='';
 
         foreach($array as $key=>$value){
             if($key==0){
-                $searchp.="'%" . $value . "%'";
-                $searchm.="'%" . $value . "%'";
+                $searchn=$value;
             }
             else{
-                $searchp.=" OR p.nom LIKE '%" . $value . "%'";
-                $searchm.=" OR m.nom LIKE '%" . $value . "%'";
+                $searchn.=" " . $value;
             }
         }
         $stmt=$db->query(
-            "SELECT DISTINCT `nom`, `description` FROM results
-            WHERE (`nom` LIKE $searchp ) 
-            OR (`description` LIKE $searchm )
-            ");
-        $results=$stmt->fetchAll(PDO::FETCH_ASSOC);
+            "SELECT DISTINCT `nom`, `description` FROM `results` 
+            WHERE `nom` LIKE '$searchn%' OR `nom` LIKE ' $searchn%' ORDER BY `nom` DESC LIMIT 7");
 
+        $results=$stmt->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($results, JSON_UNESCAPED_UNICODE);
     }
 

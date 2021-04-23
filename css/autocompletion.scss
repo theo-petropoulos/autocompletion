@@ -14,12 +14,17 @@ body{
     flex-flow: column;
     justify-content: center;
     align-items:center;
+    overflow:hidden;
 }
 
 h1{
     font-weight:800;
     text-align: center;
     font-size: calc(1.5vw + 12px);
+}
+
+.chars_left{
+    font-weight:900;
 }
 
 #search_form{
