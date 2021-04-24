@@ -224,6 +224,7 @@ html, body {
           flex-flow: row-reverse;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  z-index: 3;
 }
 
 #body_search header #search_form, #body_element header #search_form {
@@ -307,6 +308,7 @@ html, body {
           box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  z-index: 3;
 }
 
 #body_search header #search_form #search_box #results_box p, #body_element header #search_form #search_box #results_box p {
@@ -527,6 +529,11 @@ html, body {
 
 #body_search #element_desc #content h1, #body_element #element_desc #content h1 {
   font-weight: normal;
+  padding: 0 1%;
+}
+
+#body_search #element_desc #content p, #body_element #element_desc #content p {
+  padding: 0 1%;
 }
 
 strong {

@@ -25,7 +25,7 @@
     <body id="body_element">
         <header>
             <div id="ghost_header"></div>
-            <form id="search_form" method="post" action="">
+            <form id="search_form" method="post" action="/autocompletion/pages/results.php">
                 <a href="/autocompletion/index.php"><h1>Ceci<span>.</span></h1></a>
                 <div id="search_box">
                     <input type="text" name="search" id="search_input" maxlength="25" required autocomplete="off">
