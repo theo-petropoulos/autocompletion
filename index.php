@@ -1,5 +1,5 @@
 <?php
-
+    require 'php/sql.php';
 ?>
 
 <!DOCTYPE html>

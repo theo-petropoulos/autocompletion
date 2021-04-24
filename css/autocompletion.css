@@ -208,7 +208,7 @@ html, body {
 }
 
 #body_search header, #body_element header {
-  height: calc(15vh + 15px);
+  height: calc(12vh + 15px);
   min-height: 35px;
   width: 100%;
   position: relative;
@@ -390,7 +390,7 @@ html, body {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  margin: 2% auto 0 auto;
+  margin: 1% auto 0 auto;
   position: relative;
 }
 
@@ -418,7 +418,7 @@ html, body {
           flex-flow: column;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   width: 95%;
-  margin: 0.5% auto;
+  margin: 0 auto 0.5% auto;
 }
 
 #body_search #search_results span .search_result a, #body_element #search_results span .search_result a {
