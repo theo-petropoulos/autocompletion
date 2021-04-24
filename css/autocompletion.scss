@@ -13,6 +13,10 @@ html,body{
     font-weight:900;
 }
 
+.hover{
+    background:grey;
+}
+
 /* INDEX CSS */
 #body_index{
     height:100vh;
@@ -96,7 +100,6 @@ html,body{
                 user-select:none;
                 cursor:auto;
                 &:hover{
-                    background:rgb(240, 240, 240);
                     transition:all 0.3s;
                 }
                 &:last-child{
