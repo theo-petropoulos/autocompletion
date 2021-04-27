@@ -43,7 +43,7 @@ $(function(){
             else{
                 let clear=setTimeout(() => {
                     $("#results_box").empty();
-                }, 40);
+                }, 100);
                 complete = $('#search_input').val();
                 if(complete.length>0){
                     var post=$.post('/autocompletion/php/search.php',
